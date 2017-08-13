@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1502589640 source:c:\users\carlos\electronica\mechatronica\montyhall\main.c
+	<stdio.h>
+	<time.h>
+	<stdlib.h>
+
