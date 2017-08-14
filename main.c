@@ -4,12 +4,13 @@
 
 int main()
 {
-    printf("Monty Hall simulation with Monte Carlo method by Carlos Agorreta \n");
+    printf("Monty Hall simulation with Monte Carlo method by Carlos Agorreta\n carlosagorreta@gmail.com \n");
+    system("pause");
     srand(time(NULL));   // should only be called once
     rand();
-    unsigned int i=0,o=0, prize,picks[3],erand,pick,change,change_c=0,stay_c=0;
-    unsigned int trobat=0;
-    unsigned int exps,win_tot=0,win_change=0,win_no=0,lose_tot=0,lose_change=0,lose_no=0;
+     int o=0, prize,picks[3],erand,pick,trobat=0;
+   int i=0,exps,win_tot=0,win_change=0,win_no=0,lose_tot=0,lose_change=0,lose_no=0;
+   int change,change_c=0,stay_c=0;
     float win_no_stat=0,win_change_stat=0; //max is 65000
     //init random function
     //================
@@ -39,6 +40,7 @@ int main()
                 {
                     picks[erand]=2;
                     trobat=1;
+                    erand--;
                 }
             erand++;
             }
@@ -48,6 +50,7 @@ int main()
             {
             picks[erand]=2;
             trobat=1;
+            erand--;
             }
             erand++;
             }
@@ -57,7 +60,6 @@ int main()
         change=rand()%2; //player second decision, decision 0 stay 1 changes pick
         if (change==1)
         {
-            picks[pick]=3;
             o=0;
             change_c++;
          while(trobat==0)//clean picks
@@ -97,14 +99,11 @@ int main()
          win_change_stat=((float)win_change/((float)change_c))*100;
         }
         //print stats
-        printf("Showing results \n");
-        printf("of %u experiments, bot changed %u times\n",exps,change_c);
-        printf("of that %u times user stayed, user won %u, making a %f %% win percentage\n",stay_c,win_no,win_no_stat);
-        printf("of that %u times user changed, user won %u, making a %f %% win percentage\n",change_c,win_change,win_change_stat);
-        if(win_change_stat-10 > win_no_stat)
-        {
-            printf("It's clearly bettet to switch");
-        }
+        printf("Showing results: \n");
+        printf("of %u experiments, bot changed %u times\n\n",exps,change_c);
+        printf("of that %u times user stayed, user won %u,\nmaking a %f %% win percentage\n\n",stay_c,win_no,win_no_stat);
+        printf("of that %u times user changed, user won %u,\nmaking a %f %% win percentage\n\n",change_c,win_change,win_change_stat);
 
+    system("pause");
     return 0;
 }
